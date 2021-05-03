@@ -7,10 +7,10 @@ class Ridge:
     self.alpha = alpha
 
   def fit(self, X, y):
-    self.n = X.shape[0]
-    self.p = X.shape[1]
     self.X = X
     self.y = y
+    self.n = X.shape[0]
+    self.p = X.shape[1]
     self.coef_ = inv(X.T @ X + np.diag(np.repeat(self.alpha, self.p))) @ X.T @ y
     self.fitted = self.X @ self.coef_
     self.res = self.y - self.fitted
